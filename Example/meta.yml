@@ -1,0 +1,8 @@
+# Package metafile
+
+name: "Example"
+type: "Project"
+
+lumeo_version: "0.12.24"
+lumeo_platform: "Windows NT 64-bit"
+created: "09/07/2022"

@@ -78,13 +78,16 @@ func execute(arguments []string) {
 		*/
 
 		var packagetxtFileContent string = createPackageName + "\n" + "a Lumeo " + createPackageType + " package"
-		f, err := os.Create(createPackageName + "\\data.txt")
+		packagetxtLocation := createPackageName + "/package.txt"
+
+		f, err := os.Create(packagetxtLocation)
 		if err != nil {
-			print_error("Error when creating data.txt", false)
+			print_error("Error when creating package.txt", false)
 			log.Fatal(err)
 		}
-		err = ioutil.WriteFile("info.txt", []byte(packagetxtFileContent), 0644)
+		err = ioutil.WriteFile(packagetxtLocation, []byte(packagetxtFileContent), 0644)
 		if err != nil {
+			print_error("Error when creating package.txt", false)
 			log.Fatal(err)
 		}
 

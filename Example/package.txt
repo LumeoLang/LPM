@@ -1,7 +1,7 @@
 Example
 a Lumeo project package
 
-"Example"
+'Example'
 Lumeo 0.12.24
 Windows NT 64-bit
 09/07/2022

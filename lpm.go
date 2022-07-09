@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"runtime"
@@ -11,6 +12,14 @@ import (
 
 func execute(arguments []string) {
 	//fmt.Println(len(arguments), arguments)
+
+	/*
+		ex, err := os.Executable()
+		if err != nil {
+			panic(err)
+		}
+		exPath := filepath.Dir(ex)
+	*/
 
 	switch arguments[0] {
 	case "welcome": // Welcome message
@@ -67,6 +76,19 @@ func execute(arguments []string) {
 			fmt.Println("Skipping step for WINDOWS NT only")
 		}
 		*/
+
+		var packagetxtFileContent string = createPackageName + "\n" + "a Lumeo " + createPackageType + " package"
+		f, err := os.Create(createPackageName + "\\data.txt")
+		if err != nil {
+			print_error("Error when creating data.txt", false)
+			log.Fatal(err)
+		}
+		err = ioutil.WriteFile("info.txt", []byte(packagetxtFileContent), 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		f.Close()
 
 	default: // Unknown command
 		print_error("Command not found", true)

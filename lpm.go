@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"os/exec"
 	"runtime"
 )
 
@@ -55,9 +54,9 @@ func execute(arguments []string) {
 		} else {
 			fmt.Println("Package folder created")
 		}
-
+		/* Skipping until I have balls
 		if runtime.GOOS == "windows" {
-			fmt.Println("Windows NT")
+			fmt.Println("Generating package for Windows NT") // Actually, we're just adding an icon lmfao
 
 			cmd := exec.Command("")
 			err = cmd.Run()
@@ -67,6 +66,7 @@ func execute(arguments []string) {
 		} else {
 			fmt.Println("Skipping step for WINDOWS NT only")
 		}
+		*/
 
 	default: // Unknown command
 		print_error("Command not found", true)

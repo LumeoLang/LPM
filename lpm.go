@@ -150,7 +150,7 @@ func execute(arguments []string) {
 			cmdcommand := exec.Command(`explorer`, `/select,`, package_path) // Opens the package folder
 			cmdcommand.Run()                                                 // Run the command
 		} else {
-			fmt.Println("  Skipping step for WINDOWS NT only")
+			fmt.Println(" Skipping step for WINDOWS NT only")
 		}
 
 		fmt.Println(" Package created at " + package_path)

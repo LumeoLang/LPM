@@ -66,6 +66,14 @@ func execute(arguments []string) {
 		fmt.Println("Searching for ", installPackage)
 
 	case "create": // Create package
+		if len(arguments) <= 2 { // If no project type/name is given
+			if len(arguments) <= 1 {
+				print_error("Missing package type", false)
+			}
+			print_error("Missing package name", false)
+			print_error("Too little arguments passed, try 'lpm create projecttype projectname'", true)
+		}
+
 		var createPackageType string = arguments[1]
 		var createPackageName string = arguments[2]
 		fmt.Println("Creating ", createPackageType, " package ", createPackageName)
